@@ -6,10 +6,15 @@
     </head>
     <body>
         <header>
-                     
+            <button class="clearBtn" onclick="todoList.clearList()">Clear</button>
+            <p id="editable">todo list</p>
         </header>
         <main>
-            
+            <button class="addBtn" onclick="todoList.addTodo()">Add</button>
+            <input type="text" id="newTodo">
+
+            <ul id="todoUl">
+            </ul>
         </main>
         <script src="js/script.js"></script>
     </body>
