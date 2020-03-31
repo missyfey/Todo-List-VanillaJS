@@ -1,7 +1,11 @@
-
 var newTodo = document.querySelector('#newTodo');
 var todoUl = document.querySelector('#todoUl');
 
+newTodo.addEventListener('keyup', function(e){
+    if(e.keyCode === 13){
+        todoList.addTodo();
+    }
+})
 
 var todoList = {
     todos : [],
@@ -18,7 +22,6 @@ var todoList = {
     },
     editTodo : function(editedText,position){
         this.todos[position] = editedText;
-        console.log(editedText,position);
         this.displayTodos();
     },
     deleteTodo : function(position){
@@ -35,16 +38,22 @@ var todoList = {
         this.todos.forEach(item => {
             var newLi = document.createElement('li');
             newLi.id = this.todos.indexOf(item);
-            newLi.innerText = item;
-            newLi.contentEditable = "true";
+            newLi.appendChild(this.createToggleBtn());
+
+            var newSpan = document.createElement('span');
+            newSpan.innerText = item;
+            newSpan.contentEditable = "true";
+            newLi.appendChild(newSpan);
+            
+            newSpan.addEventListener('blur',function(e){
+                var editedText = e.target.innerText;
+                var idToedit = e.target.parentNode.id;
+                todoList.editTodo(editedText,idToedit);
+            });
+
             newLi.appendChild(this.createDelteBtn());
             todoUl.appendChild(newLi);
-            // newLi.addEventListener('blur',function(e){
-            //     console.log(e);
-            //     var editedText = e.target.textContent;
-            //     var idToedit = e.target.id;
-            //     todoList.editTodo(editedText,idToedit);
-            // });
+            
         })
     },
     createDelteBtn : function(){
@@ -56,8 +65,12 @@ var todoList = {
             var idToDelete = e.target.parentNode.id;
             todoList.deleteTodo(idToDelete);
            })
-
         return(delBtn)
+    },
+    createToggleBtn : function(){
+        var toggleBtn = document.createElement('input');
+        toggleBtn.type = 'checkbox'
+        return (toggleBtn);
     }
 }
 
