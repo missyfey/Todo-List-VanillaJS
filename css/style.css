@@ -4,3 +4,10 @@ body{
 .delBtn{
     background: red;
 }
+.filterBtn{
+
+}
+.active{
+    background: rebeccapurple;
+    color:white;
+}

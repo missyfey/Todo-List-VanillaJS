@@ -2,13 +2,13 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/style.css" >
-        <title>New Project</title>
+        <title>Todo List</title>
     </head>
     <body>
-        <header>
+        <header>   
             
-            <button class="clearBtn" onclick="todoList.clearList()">Clear</button>
-            <p id="editable">todo list</p>
+            <button class="clearBtn" onclick="todoList.clearCompleted()">Clear Completed</button>
+            <button class="toggleAllBtn" onclick="todoList.toggleAll()">ToggleAll</button>
         </header>
         <main>
             <button class="addBtn" onclick="todoList.addTodo()">Add</button>
@@ -16,6 +16,10 @@
 
             <ul id="todoUl">
             </ul>
+            <button class="filterBtn showAllBtn active" onclick="todoList.showAll()">All</button>
+            <button class="filterBtn showActiveBtn" onclick="todoList.showActive()">Active</button>
+            <button class="filterBtn showCompletedtn" onclick="todoList.showCompleted()">Completed</button>
+            <p id="leftTodos"></p>
         </main>
         <script src="js/script.js"></script>
     </body>
