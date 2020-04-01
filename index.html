@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css" >
         <title>Todo List</title>
     </head>
     <body>
-        <header>   
-            
-            <button class="clearBtn" onclick="todoList.clearCompleted()">Clear Completed</button>
-            <button class="toggleAllBtn" onclick="todoList.toggleAll()">ToggleAll</button>
-        </header>
-        <main>
-            <button class="addBtn" onclick="todoList.addTodo()">Add</button>
-            <input type="text" id="newTodo">
-
-            <ul id="todoUl">
-            </ul>
-            <button class="filterBtn showAllBtn active" onclick="todoList.showAll()">All</button>
-            <button class="filterBtn showActiveBtn" onclick="todoList.showActive()">Active</button>
-            <button class="filterBtn showCompletedtn" onclick="todoList.showCompleted()">Completed</button>
-            <p id="leftTodos"></p>
-        </main>
+        <div class="todoContainer col-md-8 col-lg-6">
+            <header>
+                <h1 class="todoHeader">TODOS</h1>
+                <div class="d-flex inputTodoBox">
+                    <span>
+                        <button class="toggleAllBtn" onclick="todoList.toggleAll()">&#8249;</button>
+                    </span>
+                    <input type="text" class="inputTodo" placeholder="What needs to be done?"  id="newTodo">
+                </div>                
+            </header>
+            <section>
+                <ul id="todoUl" class="todoUl">
+                </ul>
+            </section>
+            <footer class="footer">
+                <div class="col-3">
+                    <p id="leftTodos"></p>
+                </div>
+                <div class="col-6">
+                    <button class="filterBtn showAllBtn active" onclick="todoList.showAll()">All</button>
+                    <button class="filterBtn showActiveBtn" onclick="todoList.showActive()">Active</button>
+                    <button class="filterBtn showCompletedtn" onclick="todoList.showCompleted()">Completed</button>
+                </div>
+                <div class="col-3">
+                    <button class="clearBtn" onclick="todoList.clearCompleted()">Clear Completed</button>
+                </div>
+            </footer>
+        </div>
         <script src="js/script.js"></script>
     </body>
 </html>

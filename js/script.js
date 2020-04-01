@@ -43,6 +43,10 @@ var todoList = {
         this.displayTodos();
     },
     toggleAll : function(){  
+        //change color of th button by toggling class toggleBtnActive
+        var btn = document.querySelector('.toggleAllBtn');
+        btn.classList.toggle('toggleBtnActive');
+
         //check if all are checked should uncheck all todos, toggleShouldGet=False
         var completedList = [];
         for(let j=0; j<this.todos.length ; j++){
@@ -120,6 +124,7 @@ var todoList = {
             this.filteredList.forEach(item => {
             var newLi = document.createElement('li');
             newLi.id = this.filteredList.indexOf(item);
+            newLi.classList.add('todoLi');
             newLi.appendChild(this.createToggleBtn(item.completed));
 
             var newSpan = document.createElement('span');
